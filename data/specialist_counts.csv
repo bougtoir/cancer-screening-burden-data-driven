@@ -1,0 +1,47 @@
+specialty_ja,specialty_en,field,cancer_relevant,cancer_site,count_2023
+内科認定内科医,Internal Medicine (Certified Physician),basic,False,,86392
+内科内科専門医,Internal Medicine (JMSB Certified),basic,False,,3970
+内科総合内科専門医,General Internal Medicine,basic,False,,41308
+小児科専門医,Paediatrics,basic,False,,16735
+皮膚科専門医,Dermatology,basic,False,,6616
+精神科専門医,Psychiatry,basic,False,,12253
+外科専門医,General Surgery,basic,False,,25013
+整形外科専門医,Orthopaedic Surgery,basic,False,,20463
+産婦人科専門医,Obstetrics and Gynaecology,basic,True,Ovarian,21982
+眼科専門医,Ophthalmology,basic,False,,11836
+耳鼻咽喉科専門医,Otorhinolaryngology,basic,False,,8503
+泌尿器科専門医,Urology,basic,True,Prostate,7015
+脳神経外科専門医,Neurosurgery,basic,False,,7864
+放射線科専門医,Radiology,basic,False,,8148
+麻酔科専門医,Anaesthesiology,basic,False,,9459
+病理専門医,Pathology,basic,False,,5092
+臨床検査専門医,Clinical Laboratory,basic,False,,644
+救急科専門医,Emergency Medicine,basic,False,,7858
+形成外科専門医,Plastic Surgery,basic,False,,3105
+リハビリテーション科専門医,Rehabilitation Medicine,basic,False,,2939
+総合診療専門医,General Practice,basic,False,,311
+消化器病専門医,Gastroenterology,subspecialty,True,Gastric,23706
+循環器専門医,Cardiology,subspecialty,False,,16858
+呼吸器専門医,Respiratory Medicine,subspecialty,True,Lung,7594
+血液専門医,Haematology,subspecialty,False,,4540
+内分泌代謝科専門医,Endocrinology and Metabolism,subspecialty,False,,3696
+糖尿病専門医,Diabetology,subspecialty,False,,6772
+腎臓専門医,Nephrology,subspecialty,False,,6185
+肝臓専門医,Hepatology,subspecialty,True,Liver,8000
+アレルギー専門医,Allergy,subspecialty,False,,4947
+感染症専門医,Infectious Diseases,subspecialty,False,,1754
+老年科専門医,Geriatrics,subspecialty,False,,1695
+神経内科専門医,Neurology,subspecialty,False,,6569
+リウマチ専門医,Rheumatology,subspecialty,False,,5190
+消化器内視鏡専門医,Gastrointestinal Endoscopy,subspecialty,False,,20988
+がん薬物療法専門医,Medical Oncology,subspecialty,True,,1689
+消化器外科専門医,Gastrointestinal Surgery,subspecialty,True,Colorectal,8877
+呼吸器外科専門医,Thoracic Surgery,subspecialty,True,Lung,1671
+心臓血管外科専門医,Cardiovascular Surgery,subspecialty,False,,2557
+小児外科専門医,Paediatric Surgery,subspecialty,False,,727
+乳腺専門医,Breast Surgery,subspecialty,True,Breast,1943
+内分泌外科専門医,Endocrine Surgery,subspecialty,False,,396
+放射線診断専門医,Diagnostic Radiology,subspecialty,False,,6292
+放射線治療専門医,Therapeutic Radiology,subspecialty,False,,1389
+放射線カテーテル治療専門医,Interventional Radiology,subspecialty,False,,1204
+集中治療科専門医,Intensive Care Medicine,subspecialty,False,,2541

@@ -1,0 +1,9 @@
+follow_up_rate: 0.5
+screened_population_per_100k: 1.0
+total_relevant_specialists: 79117.0
+total_baseline_cancer_patients: 2779000.0
+baseline_cases_per_specialist: 35.12519433244435
+total_fp_specialist_visits_per_100k: 10742.780999999999
+fp_visits_per_specialist: 168.84810598619765
+cases_per_specialist_with_fp: 203.973300318642
+percent_change: 480.70369202267

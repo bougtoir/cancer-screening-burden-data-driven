@@ -1,0 +1,196 @@
+simulation:
+  screened_population: 100000
+  follow_up_rates:
+  - 0.0
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
+  - 1.0
+  random_seed: 42
+capacity:
+  ct_exams_per_year: 5676.432035126377
+  mri_exams_per_year: 2677.556272165081
+  endoscopy_exams_per_year: 2583.0122797564964
+  specialist_visits_per_year: 7183.295754215738
+  specialist_capacity_note: Derived from NDB Open Data first/revisit outpatient patient
+    counts (88,408,837 + 85,182,008) and 79,117 cancer-relevant JMSB specialists;
+    20% share assumed available for new cancer workups.
+  primary_care_visits_per_year: 11982.99426086868
+  primary_care_capacity_note: Derived from NDB Open Data first/revisit outpatient
+    patient counts (88,408,837 + 85,182,008) and 131,981 primary-care-relevant JMSB
+    specialists (internal medicine and general practice); 20% share assumed available
+    for new cancer workups.
+specificity_sweep:
+  follow_up_rate: 0.5
+  specificity_values:
+  - 0.95
+  - 0.98
+  - 0.99
+  - 0.995
+  - 0.999
+cancers:
+- name: Gastric
+  site: Stomach
+  sex: Both
+  prevalence_per_100k: 84.32019042870589
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.3
+    mri: 0.1
+    endoscopy: 0.9
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 4.0
+  fp_additional_visits: 1.5
+- name: Colorectal
+  site: Colon/rectum
+  sex: Both
+  prevalence_per_100k: 123.84379699399274
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.3
+    mri: 0.05
+    endoscopy: 0.95
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 4.0
+  fp_additional_visits: 1.5
+- name: Lung
+  site: Lung, trachea
+  sex: Both
+  prevalence_per_100k: 99.70165097184592
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.9
+    mri: 0.15
+    endoscopy: 0.05
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 5.0
+  fp_additional_visits: 2.0
+- name: Breast
+  site: Breast
+  sex: Both
+  prevalence_per_100k: 83.1678072552693
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.1
+    mri: 0.3
+    endoscopy: 0.05
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 4.0
+  fp_additional_visits: 1.5
+- name: Prostate
+  site: Prostate
+  sex: Male
+  prevalence_per_100k: 82.10066666130548
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.1
+    mri: 0.4
+    endoscopy: 0.05
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 3.0
+  fp_additional_visits: 1.5
+- name: Liver
+  site: Liver
+  sex: Both
+  prevalence_per_100k: 26.228980868670124
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.4
+    mri: 0.3
+    endoscopy: 0.1
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 4.0
+  fp_additional_visits: 1.5
+- name: Pancreatic
+  site: Pancreas
+  sex: Both
+  prevalence_per_100k: 38.19510900595889
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.6
+    mri: 0.3
+    endoscopy: 0.2
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 5.0
+  fp_additional_visits: 2.0
+- name: Ovarian
+  site: Ovary
+  sex: Female
+  prevalence_per_100k: 10.275751702841154
+  sensitivity: 0.7
+  specificity: 0.99
+  pathway:
+    ct: 0.4
+    mri: 0.5
+    endoscopy: 0.05
+    specialist: 1.0
+    primary_care: 1.0
+  tp_additional_visits: 5.0
+  fp_additional_visits: 2.0
+data_sources:
+  cancer_incidence:
+    source: National Cancer Center of Japan, Cancer Statistics in Japan 2016-2023
+    url: https://ganjoho.jp/reg_stat/statistics/data/dl/en.html
+    file: cancer_incidenceNCR_2016-2023E.xlsx
+    note: Adult (20+) incidence rates for 2023 are used as a proxy for the point prevalence
+      of screen-detectable cancers. Because point prevalence of undiagnosed cancers
+      is usually lower than annual incidence, this tends to overestimate true positives
+      and PPV and underestimate FP/TP ratios.
+  population:
+    source: National Cancer Center of Japan, population by age/sex 2023
+    url: https://ganjoho.jp/reg_stat/statistics/data/dl/en.html
+    file: cancer_incidenceNCR_2016-2023E.xlsx
+  diagnostic_capacity:
+    source: Ministry of Health, Labour and Welfare, 2023 Medical Facility Survey (Static/Dynamic),
+      05sisetu05.xlsx
+    url: https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/23/
+    file: 05sisetu05.xlsx
+    note: September 2023 one-month patient counts are annualised (x12) and multiplied
+      by AVAILABLE_CANCER_SHARE (20%) to estimate the cancer-diagnostic capacity available
+      to a DTC screening wave.
+  test_performance:
+    source:
+    - 'Kahwati LC, Avenarius M, Brouwer L, et al. Blood-Based Tests for Multiple Cancer
+      Screening: A Systematic Review. AHRQ Publication No. 25-EHC033. Rockville (MD):
+      Agency for Healthcare Research and Quality; 2025. https://doi.org/10.23970/AHRQEPCSRMULTIPLE'
+    - 'LeeVan E, Pinsky P. Predictive Performance of Cell-Free Nucleic Acid-Based
+      Multi-Cancer Early Detection Tests: A Systematic Review. Clin Chem. 2024;70(1):90-101.
+      https://doi.org/10.1093/clinchem/hvad134'
+    note: Base-case sensitivity 0.70 is near the MCED review median (0.73); specificity
+      0.99 is within the reported range (0.657-1.0). Per-cancer values are uniform
+      scenario assumptions; the specificity_sweep explores the effect of overall test
+      accuracy.
+  real_world_ppv:
+    source: Nagamachi S et al., nationwide PET/CT facility survey on N-NOSE-triggered
+      examinations (2024). https://jcpet.jp/2024/10/senchu-chosa.html
+    note: Observed cancer discovery rate after N-NOSE high-risk was ~2% overall and
+      <1% for the 15 target cancers; company-claimed 11.7% PPV is disputed by the
+      original survey authors.
+assumptions:
+  available_for_cancer_share: 0.2
+  pathway_note: Pathway probabilities and additional-visit counts are expert-assumption
+    scenario values based on standard diagnostic guidelines, not empirical data.
+  prevalence_proxy_note: Point prevalence of undiagnosed screen-detectable cancers
+    is not publicly reported; adult incidence is used as a proxy. Because point prevalence
+    is likely lower than annual incidence, this may overestimate true positives and
+    PPV and underestimate FP/TP ratios.
